@@ -19,13 +19,13 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="list-ul" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="list-outline" color={color} />,
         }}
       />
       <Tabs.Screen
         name="items-to-buy"
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="check-square-o" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="cart-outline" color={color} />,
         }}
       />
     </Tabs>
