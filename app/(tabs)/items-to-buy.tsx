@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <Stack.Screen
         options={{
-          headerTitle: 'Lista de Itens',
+          headerTitle: 'Lista de Compras',
           headerTitleStyle: {
             color: Colors.white,
           },
@@ -20,7 +20,7 @@ export default function Home() {
       />
       <Container>
         <View>
-          <Text>Lista de Itens</Text>
+          <Text>Lista de Compras</Text>
         </View>
       </Container>
     </>
