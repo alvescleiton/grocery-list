@@ -5,7 +5,7 @@ export const TabBarIcon = (props: {
   name: React.ComponentProps<typeof Ionicons>['name'];
   color: string;
 }) => {
-  return <Ionicons size={34} style={styles.tabBarIcon} {...props} />;
+  return <Ionicons size={30} style={styles.tabBarIcon} {...props} />;
 };
 
 export const styles = StyleSheet.create({
