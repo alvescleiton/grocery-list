@@ -15,6 +15,9 @@ export const HeaderStack = ({ title }: HeaderStackProps) => {
           color: Colors.primary,
           fontSize: 18,
         },
+        headerStyle: {
+          backgroundColor: Colors.white,
+        },
         headerShadowVisible: false,
       }}
     />
