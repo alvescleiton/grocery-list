@@ -6,10 +6,10 @@ import { HeaderStack } from '~/components/layout/header/HeaderStack';
 export default function Home() {
   return (
     <>
-      <HeaderStack title="Lista de Compras" />
+      <HeaderStack title="Itens Para Comprar" />
       <Container>
         <View>
-          <Text>Lista de Compras</Text>
+          <Text>Itens Para Comprar</Text>
         </View>
       </Container>
     </>
