@@ -1,35 +1,22 @@
-import { Ionicons } from '@expo/vector-icons';
-import { FlatList, ListRenderItem, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { FlatList, ListRenderItem, View } from 'react-native';
 
-import { Container } from '~/components/layout/Container/Container';
-import { HeaderStack } from '~/components/layout/Header/HeaderStack';
-import Colors from '~/constants/Colors';
+import { Container } from '~/components/atoms/container/Container';
+import { HeaderStack } from '~/components/atoms/headerStack/HeaderStack';
+import { ProdutItem } from '~/components/atoms/product/ProductItem';
+import { Search } from '~/components/atoms/search/Search';
 import productList from '~/data/productList.json';
-
-type ItemType = {
-  id: string;
-  title: string;
-};
+import { ProductItemType } from '~/types/productItem';
 
 export default function Home() {
-  const renderItems: ListRenderItem<ItemType> = ({ item }) => {
-    return (
-      <View key={item.id} className="flex-row border-b border-gray-200 px-2 py-4">
-        <Text className="flex-1 text-lg text-gray-700">{item.title}</Text>
-        <TouchableOpacity>
-          <Ionicons size={28} name="add-circle" color={Colors.greenLight} />
-        </TouchableOpacity>
-      </View>
-    );
+  const renderItems: ListRenderItem<ProductItemType> = ({ item }) => {
+    return <ProdutItem item={item} />;
   };
 
   return (
     <>
       <HeaderStack title="Produtos" />
       <Container>
-        <View className="h-14 w-full rounded-md bg-white px-3">
-          <TextInput className="flex-1" placeholder="Buscar..." placeholderTextColor="#999" />
-        </View>
+        <Search />
 
         <View>
           <FlatList
