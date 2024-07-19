@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { FlatList, ListRenderItem, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-import { Container } from '~/components/layout/Container';
+import { Container } from '~/components/layout/Container/Container';
 import { HeaderStack } from '~/components/layout/header/HeaderStack';
 import Colors from '~/constants/Colors';
 import productList from '~/data/productList.json';
