@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
 
 import { Container } from '~/components/layout/Container/Container';
-import { HeaderStack } from '~/components/layout/header/HeaderStack';
+import { HeaderStack } from '~/components/layout/Header/HeaderStack';
 
 export default function Home() {
   return (
