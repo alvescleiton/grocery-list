@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Alert, FlatList, ListRenderItem, View } from 'react-native';
 
 import { Container } from '~/components/atoms/container/Container';
