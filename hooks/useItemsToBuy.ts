@@ -1,27 +1,23 @@
 import { useEffect, useState } from 'react';
 
 import { itemsToBuy } from '~/services/itemToBuy';
-import { ProductItemType } from '~/types/productItem';
+import { ItemsToBuy } from '~/types/itemsToBuy';
 
-type UseItemsToBuyProps = {
-  loadData?: boolean;
-};
-
-function useItemsToBuy({ loadData = false }: UseItemsToBuyProps) {
+function useItemsToBuy(loadData = false) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | undefined>();
-  const [productList, setProductList] = useState<ProductItemType[]>([]);
+  const [productList, setProductList] = useState<ItemsToBuy[]>([]);
 
   useEffect(() => {
     if (loadData) {
       (async () => {
         setIsLoading(true);
-        const { products, error } = await itemsToBuy();
-        products?.sort((a, b) => a.title.localeCompare(b.title));
+        const { data, error } = await itemsToBuy();
+        data?.sort((a, b) => a.title.localeCompare(b.title));
 
         setIsLoading(false);
         setError(error?.message);
-        setProductList(products);
+        setProductList(data);
       })();
     }
   }, [loadData]);
@@ -29,7 +25,7 @@ function useItemsToBuy({ loadData = false }: UseItemsToBuyProps) {
   return {
     isLoading,
     error,
-    productList,
+    data: productList,
   };
 }
 

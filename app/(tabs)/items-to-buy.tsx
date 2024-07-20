@@ -4,22 +4,26 @@ import { Alert, FlatList, ListRenderItem, View } from 'react-native';
 import { Container } from '~/components/atoms/container/Container';
 import { HeaderStack } from '~/components/atoms/headerStack/HeaderStack';
 import { NoItem } from '~/components/atoms/noItems/NoItems';
+import { CheckUncheckProduct } from '~/components/atoms/product/CheckUncheckProduct';
 import { ProdutItem } from '~/components/atoms/product/ProductItem';
 import { ProductItemSkeleton } from '~/components/atoms/product/ProductItemSkeleton';
-import { ProductItemTypeEnum } from '~/enum/productItemEnum';
 import useItemsToBuy from '~/hooks/useItemsToBuy';
-import { ProductItemType } from '~/types/productItem';
+import { ItemsToBuy } from '~/types/itemsToBuy';
 
-export default function ItemsToBuy() {
-  const isFocused = useIsFocused();
-  const { isLoading, error, productList } = useItemsToBuy({ loadData: isFocused });
+export default function ItemsToBuyPage() {
+  const pageLoaded = useIsFocused();
+  const { isLoading, error, data: productList } = useItemsToBuy(pageLoaded);
 
   if (error) {
     Alert.alert('Erro', error);
   }
 
-  const renderItems: ListRenderItem<ProductItemType> = ({ item }) => {
-    return <ProdutItem item={item} type={ProductItemTypeEnum.Buy} />;
+  const renderItems: ListRenderItem<ItemsToBuy> = ({ item }) => {
+    return (
+      <ProdutItem title={item.title}>
+        <CheckUncheckProduct item={item} />
+      </ProdutItem>
+    );
   };
 
   return (
