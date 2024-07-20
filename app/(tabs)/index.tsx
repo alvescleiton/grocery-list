@@ -1,8 +1,9 @@
-import { Alert, FlatList, ListRenderItem, Text, View } from 'react-native';
+import { Alert, FlatList, ListRenderItem, View } from 'react-native';
 
 import { Container } from '~/components/atoms/container/Container';
 import { HeaderStack } from '~/components/atoms/headerStack/HeaderStack';
 import { ProdutItem } from '~/components/atoms/product/ProductItem';
+import { ProductItemSkeleton } from '~/components/atoms/product/ProductItemSkeleton';
 import { Search } from '~/components/atoms/search/Search';
 import useProductList from '~/hooks/useProductList';
 import { ProductItemType } from '~/types/productItem';
@@ -22,7 +23,8 @@ export default function Home() {
     <>
       <HeaderStack title="Produtos" />
       <Container>
-        <Search />
+        <Search disabled={isLoading} />
+
         {!isLoading ? (
           <View>
             <FlatList
@@ -33,7 +35,7 @@ export default function Home() {
             />
           </View>
         ) : (
-          <Text>Loading...</Text>
+          <ProductItemSkeleton qtd={10} />
         )}
       </Container>
     </>
