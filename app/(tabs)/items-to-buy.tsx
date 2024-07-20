@@ -12,7 +12,7 @@ import { ProductItemType } from '~/types/productItem';
 
 export default function ItemsToBuy() {
   const isFocused = useIsFocused();
-  const { isLoading, error, productList } = useItemsToBuy({ isFocused });
+  const { isLoading, error, productList } = useItemsToBuy({ loadData: isFocused });
 
   if (error) {
     Alert.alert('Erro', error);

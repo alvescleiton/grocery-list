@@ -4,16 +4,16 @@ import { itemsToBuy } from '~/services/itemToBuy';
 import { ProductItemType } from '~/types/productItem';
 
 type UseItemsToBuyProps = {
-  isFocused?: boolean;
+  loadData?: boolean;
 };
 
-function useItemsToBuy({ isFocused = false }: UseItemsToBuyProps) {
+function useItemsToBuy({ loadData = false }: UseItemsToBuyProps) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | undefined>();
   const [productList, setProductList] = useState<ProductItemType[]>([]);
 
   useEffect(() => {
-    if (isFocused) {
+    if (loadData) {
       (async () => {
         setIsLoading(true);
         const { products, error } = await itemsToBuy();
@@ -24,7 +24,7 @@ function useItemsToBuy({ isFocused = false }: UseItemsToBuyProps) {
         setProductList(products);
       })();
     }
-  }, [isFocused]);
+  }, [loadData]);
 
   return {
     isLoading,
