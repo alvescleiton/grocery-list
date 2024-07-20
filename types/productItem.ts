@@ -1,7 +1,5 @@
-export type ProductItemType = {
+export interface ProductItem {
   id: string;
   title: string;
   created_at: Date;
-  product_id?: string;
-  checked?: boolean;
-};
+}

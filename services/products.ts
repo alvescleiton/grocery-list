@@ -1,13 +1,13 @@
-import { ProductItemType } from '~/types/productItem';
+import { ProductItem } from '~/types/productItem';
 import { supabase } from '~/utils/supabase';
 
 export async function listProducts() {
   const { data, error } = await supabase.from('product_list').select('*');
 
-  const products = data as ProductItemType[];
+  const products = data as ProductItem[];
 
   return {
-    products,
+    data: products,
     error,
   };
 }

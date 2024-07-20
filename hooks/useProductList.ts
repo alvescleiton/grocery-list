@@ -1,29 +1,29 @@
 import { useEffect, useState } from 'react';
 
 import { listProducts } from '~/services/products';
-import { ProductItemType } from '~/types/productItem';
+import { ProductItem } from '~/types/productItem';
 
 function useProductList() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | undefined>();
-  const [productList, setProductList] = useState<ProductItemType[]>([]);
+  const [productList, setProductList] = useState<ProductItem[]>([]);
 
   useEffect(() => {
     (async () => {
       setIsLoading(true);
-      const { products, error } = await listProducts();
-      products?.sort((a, b) => a.title.localeCompare(b.title));
+      const { data, error } = await listProducts();
+      data?.sort((a, b) => a.title.localeCompare(b.title));
 
       setIsLoading(false);
       setError(error?.message);
-      setProductList(products);
+      setProductList(data);
     })();
   }, []);
 
   return {
     isLoading,
     error,
-    productList,
+    data: productList,
   };
 }
 
