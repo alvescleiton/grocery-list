@@ -6,6 +6,7 @@ import { HeaderStack } from '~/components/atoms/headerStack/HeaderStack';
 import { NoItem } from '~/components/atoms/noItems/NoItems';
 import { ProdutItem } from '~/components/atoms/product/ProductItem';
 import { ProductItemSkeleton } from '~/components/atoms/product/ProductItemSkeleton';
+import { ProductItemTypeEnum } from '~/enum/productItemEnum';
 import useItemsToBuy from '~/hooks/useItemsToBuy';
 import { ProductItemType } from '~/types/productItem';
 
@@ -18,7 +19,7 @@ export default function ItemsToBuy() {
   }
 
   const renderItems: ListRenderItem<ProductItemType> = ({ item }) => {
-    return <ProdutItem item={item} />;
+    return <ProdutItem item={item} type={ProductItemTypeEnum.Buy} />;
   };
 
   return (
