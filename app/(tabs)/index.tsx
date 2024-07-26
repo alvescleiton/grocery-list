@@ -1,5 +1,5 @@
 import { useIsFocused } from '@react-navigation/native';
-import { Alert, FlatList, ListRenderItem, View } from 'react-native';
+import { Alert, FlatList, ListRenderItem } from 'react-native';
 
 import { Container } from '~/components/atoms/container/Container';
 import { HeaderStack } from '~/components/atoms/headerStack/HeaderStack';
@@ -38,14 +38,12 @@ export default function HomePage() {
         {!isLoading ? (
           <>
             <Search />
-            <View>
-              <FlatList
-                data={productList}
-                renderItem={renderItems}
-                showsVerticalScrollIndicator={false}
-                contentContainerClassName="pt-4 pb-14"
-              />
-            </View>
+            <FlatList
+              data={productList}
+              renderItem={renderItems}
+              showsVerticalScrollIndicator={false}
+              contentContainerClassName="pt-4 pb-14"
+            />
           </>
         ) : (
           <ProductItemSkeleton qtd={10} />

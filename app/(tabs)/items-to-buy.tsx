@@ -89,14 +89,12 @@ export default function ItemsToBuyPage() {
 
         {!isLoading ? (
           <>
-            <View>
-              <FlatList
-                data={productList}
-                renderItem={renderItems}
-                showsVerticalScrollIndicator={false}
-                contentContainerClassName="pt-4 pb-14"
-              />
-            </View>
+            <FlatList
+              data={productList}
+              renderItem={renderItems}
+              showsVerticalScrollIndicator={false}
+              contentContainerClassName="pt-4 pb-14"
+            />
 
             <View className="absolute bottom-2 left-4 w-full">
               <TouchableOpacity
