@@ -1,5 +1,5 @@
 import { useIsFocused } from '@react-navigation/native';
-import { Alert, FlatList, ListRenderItem, View } from 'react-native';
+import { Alert, FlatList, ListRenderItem, Text, TouchableOpacity, View } from 'react-native';
 
 import { Container } from '~/components/atoms/container/Container';
 import { HeaderStack } from '~/components/atoms/headerStack/HeaderStack';
@@ -44,6 +44,14 @@ export default function ItemsToBuyPage() {
         ) : (
           <ProductItemSkeleton qtd={10} />
         )}
+
+        <View className="absolute bottom-2 left-5 w-full">
+          <TouchableOpacity
+            className="bg-greenLight flex h-14 w-full items-center justify-center rounded-md"
+            onPress={() => {}}>
+            <Text className="text-lg font-bold text-white">Finalizar Pedido</Text>
+          </TouchableOpacity>
+        </View>
       </Container>
     </>
   );
