@@ -45,7 +45,7 @@ export default function ItemsToBuyPage() {
           <ProductItemSkeleton qtd={10} />
         )}
 
-        <View className="absolute bottom-2 left-5 w-full">
+        <View className="absolute bottom-2 left-4 w-full">
           <TouchableOpacity
             className="bg-greenLight flex h-14 w-full items-center justify-center rounded-md"
             onPress={() => {}}>
